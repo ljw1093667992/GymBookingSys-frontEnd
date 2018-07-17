@@ -1,0 +1,98 @@
+
+    {
+      "url": "/gymlist",
+      "desc": "获取场馆列表",
+      "filename":"bookCenter",
+      "mock": true,
+      "res": {
+        "code":1,
+        "msg":"get bookcenter",
+        "data":
+        {
+          "N":
+          [
+            {
+              "id":7,
+              "title":"南校区篮球场",
+              "addr":"地址:篮球场",
+              "rank":4,
+              "ref_sport":7
+              },
+              {
+                "id":8,
+                "title":"南校区足球场",
+                "addr":"地址:篮球场",
+                "rank":4,
+                "ref_sport":5
+                },
+                {
+                  "id":9,
+                  "title":"南校区羽毛球场",
+                  "addr":"地址:羽毛球场",
+                  "rank":4,
+                  "ref_sport":4
+                  }
+                ],
+            "B":
+            [
+              {
+                "id":1,
+                "title":"北校区乒乓球室",
+                "addr":"地址：乒乓球室",
+                "rank":4,
+                "ref_sport":2
+                }
+            ],
+            "Z":
+            [
+              {
+                "id":10,
+                "title":"珠海游泳馆",
+                "addr":"场地地址： 综合训练馆",
+                "rank":4,
+                "ref_sport":1
+                }
+              ],
+              "D":
+              [
+                {
+                  "id":2,
+                  "title":"东校区乒乓球室",
+                  "addr":"地址：乒乓球室",
+                  "rank":4,
+                  "ref_sport":2
+                  },
+                {
+                    "id":3,
+                    "title":"东校区游泳馆",
+                    "addr":"场地地址： 综合训练馆",
+                    "rank":4,
+                    "ref_sport":1
+                },
+                {
+                    "id":4,
+                    "title":"东校区羽毛球馆",
+                    "addr":"地址：羽毛球馆",
+                    "rank":4,
+                    "ref_sport":4
+                },
+                {
+                  "id":5,
+                  "title":"东校区网球场",
+                  "addr":"地址:网球场",
+                  "rank":4,
+                  "ref_sport":6
+                },
+                {
+                  "id":6,
+                  "title":"东校区健身房",
+                  "addr":"场地地址： 综合训练馆",
+                  "rank":4,
+                  "ref_sport":3
+                  }
+                ]
+              }
+        }
+
+    }
+
