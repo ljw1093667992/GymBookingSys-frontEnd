@@ -2,6 +2,7 @@
     <div id="bookingHall-container">
         <Navigation> </Navigation>
         <Banner> </Banner>
+        <!-- <test> </test> -->
         <div class="left">
             <FigureArea placeName="南校区" @reserveOnline='getEvent()'>
                 <img src="../assets/bookingHall/100001.jpg" alt="#" slot="imgContainer">
@@ -43,6 +44,7 @@ import Banner from "../common/forBookingHall/banner";
 import Notice from "../common/forBookingHall/notice";
 import FigureArea from "../common/forBookingHall/figureArea";
 import DropDownMenu from "../common/forBookingHall/dropDownMenu";
+import Test from "../common/forBookingHall/test";
 import axios from 'axios'
 
 export default {
@@ -51,7 +53,8 @@ export default {
     Banner,
     Notice,
     FigureArea,
-    DropDownMenu
+    DropDownMenu,
+    Test
   },
   data() {
     return {

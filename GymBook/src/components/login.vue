@@ -5,9 +5,9 @@
       <div class="title">中央身份验证服务(CAS)</div>
       <div class="login_input">
           <label class="login_user" for='account'>NetID(网络身份标识)：</label>
-          <input id='account' type="text" placeholder="请输入账号" v-model='account' required >
+          <input id='account' type="text" placeholder="请输入账号" v-model='account' required @keyup='checkAccount()' >
           <label class="login_pwd" for='pwd'>密  码：</label>
-          <input id='pwd' type="text" placeholder="请输入密码" v-model='pwd' required >
+          <input id='pwd' type="text" placeholder="请输入密码" v-model='pwd' required @keyup='checkPwd()'>
           <el-button type="success" :plain="true"  @click='login()'>登录</el-button>
         <p>出于安全考虑，一旦您访问过那些需要提供密码验证的应用时，请操作完成之后退出并<a href="">关闭</a>浏览器</p>
 
@@ -26,6 +26,13 @@ export default {
     };
   },
   methods: {
+    // 账号密码的验证接口
+    checkAccount(){
+      
+    },
+    checkPwd(){
+      
+    },
     back() {
       this.$router.push("/");
     },
@@ -113,8 +120,11 @@ $height: 240px;
       display: block;
       /*background-color: aqua;*/
       width: 80%;
+      &:focus{
+        transform:scaleX(1.1);
+        transition:0.3s ease-in;
+      }
     }
-
     button {
       display: block;
       margin: 30px auto;

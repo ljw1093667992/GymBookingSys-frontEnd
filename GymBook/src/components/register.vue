@@ -6,13 +6,13 @@
       <div class="login_input">
         <div class="login_user">NetID(网络身份标识)：</div>
         <span :class='{accountTip:true}' v-html='accountTipText' ></span>
-        <input type="text" placeholder="请输入账号" v-model='account' @keyup='accountConfirm()'>
+        <input type="text" placeholder="账号长度为8~25位，必须包含字母、数字" v-model='account' maxLength='25' @keyup='accountConfirm()'>
         <label class="login_password" for="pwd">密  码：</label>
         <span :class='{pwdTip:pwdTipCtrl}' v-html='pwdTipText'> </span>
-        <input type="text" placeholder="请输入密码" id='pwd' v-model='pwd' @keyup='pwdConfirm()'>
+        <input type="text" placeholder="密码长度为8~25位" id='pwd' maxLength='25' v-model='pwd' @keyup='pwdConfirm()'>
         <label class="login_password" for="confirmPwd">确认密码：</label>
         <span :class='{pwdTwiceTip:true}' v-html='pwdTwiceTipText'> </span>
-        <input type="text" placeholder="密码确认" id='confirmPwd' v-model='pwdTwice' @keyup='pwdTwiceFunc()'>
+        <input type="text" placeholder="密码确认" id='confirmPwd' maxLength='25' v-model='pwdTwice' @keyup='pwdTwiceFunc()'>
         <el-radio class='el-radio' v-model='radio' label="0" @change='getRole()'>普通用户</el-radio>
         <el-radio class='el-radio' v-model='radio' label="1" @change='getRole()'>管理员</el-radio>
         <el-button type="success" :plain="true"  @click='register()'>注册</el-button>
@@ -54,13 +54,15 @@ export default {
     },
     //验证用户名
     accountConfirm() {
-      const accountLen = this.account.length;
-      if (accountLen >= 5 && accountLen <= 18) {
+      // 用户名必须同时包含数字和字母...
+      let reg = /^(?!([0-9]+|[a-zA-Z]+)$)[0-9a-zA-Z]{8,25}$/;
+      let matchResult = reg.test(this.account)
+      if (matchResult) {
         this.accountTipCtrl = false;
         this.accountTipText = "";
       } else {
         this.accountTipCtrl = true;
-        this.accountTipText = "账号长度必须在5~25个字符";
+        this.accountTipText = "账号不符合规范~";
       }
     },
     // 验证密码
@@ -71,14 +73,14 @@ export default {
         this.pwdTipText = "";
       } else {
         this.pwdTipCtrl = true;
-        this.pwdTipText = "密码长度必须在5~18个字符";
+        this.pwdTipText = "密码不符合规范~";
       }
     },
     // 密码确认
     pwdTwiceFunc() {
       if (this.pwd !== this.pwdTwice) {
         this.pwdTwiceTipCtrl = true;
-        this.pwdTwiceTipText = "两次密码不一致";
+        this.pwdTwiceTipText = "两次密码不一致~";
       } else {
         this.pwdTwiceTipCtrl = false;
         this.pwdTwiceTipText = "";
@@ -192,6 +194,10 @@ $height: 240px;
       display: block;
       /*background-color: aqua;*/
       width: 80%;
+      &:focus{
+        transform:scaleX(1.1);
+        transition:0.3s ease-in;
+      }
     }
     button {
       margin: 30px auto;

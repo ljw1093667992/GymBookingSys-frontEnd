@@ -1,11 +1,15 @@
+// 新闻列表或通知公告组件
 <template>
     <div id="notice-container">
+      <!-- 具名槽口 -->
         <slot name="head" class="head"> </slot>
         <div class="body">
             <ul>
                 <li v-for="(item, index) in noticeArr" :key="index" @click="newsContent(item,index)">
                     <i class="el-icon-arrow-right"> </i>
-                    <!--场馆列表该字段是content,其他列表为title-->
+                    <!--这里设了比较齐全的标签，如剩余量，开始预订时间和终止预订时间，
+                    引用该组件时传入不同的属性值来显示自己需要的字段；
+                    -->
                     <span class="title">{{ item.content || item.title }}</span>
                     <div class="useTime" v-show="usetime">
                         <span class="start">{{ item.startTime }}</span>
